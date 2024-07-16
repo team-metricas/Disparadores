@@ -87,3 +87,24 @@ plt.tight_layout()
 plt.savefig("../bottom_10_frequent.png")  
 plt.show()  
 
+
+# Calculo de descriptores estadísticos
+descriptive_stats = frequency_analysis['frecuencia'].describe()
+descriptive_stats = descriptive_stats.apply(lambda x: round(x, 2))
+
+# Calculo de la mediana
+median_value = round(frequency_analysis['frecuencia'].median(), 2)
+
+# Agrego la mediana a los descriptores estadísticos
+descriptive_stats['median'] = median_value
+
+# EXporto los descriptores estadísticos a un archivo CSV
+descriptive_stats.to_csv("../descriptive_stats.csv", sep=';', encoding='utf-8-sig')
+
+
+"""
+Percentiles: Los percentiles dividen un conjunto de datos en 100 partes iguales. El valor en el percentil 
+𝑝 es el valor por debajo del cual cae el p% de los datos.
+En otras palabras, si un valor se encuentra en el percentil 25,
+significa que el 25% de los datos son menores o iguales a ese valor.
+"""
