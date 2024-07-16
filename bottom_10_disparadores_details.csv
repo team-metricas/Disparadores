@@ -1,0 +1,11 @@
+﻿Name;ID;disparador
+DDHH01CUX01 Apertura;PLBWX5XYGQ2B3GP7IN8Q-tknwrra59i@b.m-1663611276762;inmigrante
+CU10CUX01 Vida cotidiana (audio 1 - Pasaje San Lorenzo y Defensa);PLBWX5XYGQ2B3GP7IN8Q-ub76fc3hdv@b.m-1686337278223;testaudiocasco
+TR03CUX17 Solicitud al Departamento de Legales de Licencias;PLBWX5XYGQ2B3GP7IN8Q-pquxlcdskf@b.m-1627927690484;alimentarios
+TR03CUX17 Solicitud al Departamento de Legales de Licencias;PLBWX5XYGQ2B3GP7IN8Q-pquxlcdskf@b.m-1627927690484;legales
+TR03CUX17 Permiso de carga excepcional (por viaje);PLBWX5XYGQ2B3GP7IN8Q-guadalupe@botmaker.io-1561384354070;excepcional
+TR03CUX17 Permiso de carga excepcional (por viaje);PLBWX5XYGQ2B3GP7IN8Q-guadalupe@botmaker.io-1561384354070;peso
+TR03CUX17 Permiso de carga excepcional (por viaje);PLBWX5XYGQ2B3GP7IN8Q-guadalupe@botmaker.io-1561384354070;super
+TR03CUX17 Permiso de carga excepcional (por viaje);PLBWX5XYGQ2B3GP7IN8Q-guadalupe@botmaker.io-1561384354070;largo
+TR03CUX17 Permiso de carga excepcional (por viaje);PLBWX5XYGQ2B3GP7IN8Q-guadalupe@botmaker.io-1561384354070;excepcionales
+LIC00CUX00  Inhibido > No / Turno > No / Trámite > No / CHV > Sí / Infracciones > Sí;PLBWX5XYGQ2B3GP7IN8Q-71taky8k4z@b.m-1666379056351;infraccionesrenovtest
