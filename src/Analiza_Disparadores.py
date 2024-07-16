@@ -1,8 +1,8 @@
 import os
 import pandas as pd
-import sys
-import re
 import matplotlib.pyplot as plt
+import seaborn as sns
+import re
 
 # Cambio al directorio de datos
 os.chdir("../data/")
@@ -51,10 +51,17 @@ filtered_top_30_df.to_csv("../top_30_disparadores_details.csv", sep=';', index=F
 bottom_10_disparadores = bottom_10_frequent['disparador']
 filtered_bottom_10_df = expanded_df[expanded_df['disparador'].isin(bottom_10_disparadores)]
 
-# exportio el DataFrame filtrado a un archivo CSV
+# Exporto el DataFrame filtrado a un archivo CSV
 filtered_bottom_10_df.to_csv("../bottom_10_disparadores_details.csv", sep=';', index=False, encoding='utf-8-sig')
 
-# Graficos del análisis de frecuencia....
+# Filtro el expanded_df para obtener las filas donde "disparador" contiene la palabra "curso" pero no "consurso"
+curso_df = expanded_df[expanded_df['disparador'].str.contains('curso', case=False, na=False)]
+curso_df = curso_df[~curso_df['disparador'].str.contains('consurso', case=False, na=False)]
+
+# Exporto el DataFrame filtrado a un archivo CSV
+curso_df.to_csv("../curso_disparadores_details.csv", sep=';', index=False, encoding='utf-8-sig')
+
+# Graficos del análisis de frecuencia
 plt.figure(figsize=(12, 8))
 plt.bar(frequency_analysis['disparador'][:20], frequency_analysis['frecuencia'][:20])
 plt.xlabel('Disparador')
@@ -62,10 +69,10 @@ plt.ylabel('Frecuencia')
 plt.title('Análisis de Frecuencia de Disparadores')
 plt.xticks(rotation=45, ha='right')
 plt.tight_layout()
-plt.savefig("../frequency_analysis.png")  
-plt.show()  
+plt.savefig("../frequency_analysis.png")
+plt.show()
 
-#  30 valores TOP de mayor frecuencia
+# 30 valores TOP de mayor frecuencia
 plt.figure(figsize=(12, 8))
 plt.bar(top_30_frequent['disparador'], top_30_frequent['frecuencia'])
 plt.xlabel('Disparador')
@@ -74,7 +81,7 @@ plt.title('Top 30 Disparadores más Frecuentes')
 plt.xticks(rotation=45, ha='right')
 plt.tight_layout()
 plt.savefig("../top_30_frequent.png")
-plt.show()  
+plt.show()
 
 # 10 valores de menor frecuencia
 plt.figure(figsize=(12, 8))
@@ -84,9 +91,19 @@ plt.ylabel('Frecuencia')
 plt.title('Bottom 10 Disparadores menos Frecuentes')
 plt.xticks(rotation=45, ha='right')
 plt.tight_layout()
-plt.savefig("../bottom_10_frequent.png")  
-plt.show()  
+plt.savefig("../bottom_10_frequent.png")
+plt.show()
 
+# Curva de frecuencia total
+plt.figure(figsize=(12, 8))
+sns.lineplot(data=frequency_analysis, x='disparador', y='frecuencia', marker='o')
+plt.xlabel('Disparador')
+plt.ylabel('Frecuencia')
+plt.title('Curva de Frecuencia Total de Disparadores')
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout()
+plt.savefig("../curva_frecuencia_total.png")
+plt.show()
 
 # Calculo de descriptores estadísticos
 descriptive_stats = frequency_analysis['frecuencia'].describe()
@@ -98,9 +115,14 @@ median_value = round(frequency_analysis['frecuencia'].median(), 2)
 # Agrego la mediana a los descriptores estadísticos
 descriptive_stats['median'] = median_value
 
-# EXporto los descriptores estadísticos a un archivo CSV
+print(descriptive_stats)
+
+# Guardar los descriptores estadísticos a un archivo CSV
 descriptive_stats.to_csv("../descriptive_stats.csv", sep=';', encoding='utf-8-sig')
 
+# Encuentra la moda de la columna 'disparador'
+moda_disparadores = frequency_analysis.loc[frequency_analysis['frecuencia'].idxmax(), 'disparador']
+print(f"La moda de la columna 'disparador' es: {moda_disparadores}")
 
 """
 Percentiles: Los percentiles dividen un conjunto de datos en 100 partes iguales. El valor en el percentil 
