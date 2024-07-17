@@ -112,17 +112,32 @@ descriptive_stats = descriptive_stats.apply(lambda x: round(x, 2))
 # Calculo de la mediana
 median_value = round(frequency_analysis['frecuencia'].median(), 2)
 
-# Agrego la mediana a los descriptores estadísticos
+# Agrego la mediana a los descriptores estadísticos, no me venia en el paquete
 descriptive_stats['median'] = median_value
 
 print(descriptive_stats)
 
-# Guardar los descriptores estadísticos a un archivo CSV
+# Exporto los descriptores estadísticos a un archivo CSV
 descriptive_stats.to_csv("../descriptive_stats.csv", sep=';', encoding='utf-8-sig')
 
-# Encuentra la moda de la columna 'disparador'
-moda_disparadores = frequency_analysis.loc[frequency_analysis['frecuencia'].idxmax(), 'disparador']
-print(f"La moda de la columna 'disparador' es: {moda_disparadores}")
+# invento una nueva columna con la longitud de cada cadena en la columna "disparador"
+expanded_df['length'] = expanded_df['disparador'].apply(len)
+
+# Ordeno el DataFrame por la longitud de las cadenas de forma descendente
+expanded_df_sorted = expanded_df.sort_values(by='length', ascending=False)
+
+# armo un ranking basado en la longitud de las cadenas
+expanded_df_sorted['ranking'] = expanded_df_sorted['length'].rank(method='dense', ascending=False).astype(int)
+
+#Seleccionolas 30 primeras filas
+top_30_longest = expanded_df_sorted.head(30)
+
+# Exporto las 30 primeras filas a un archivo CSV
+top_30_longest[['ID', 'Name', 'disparador', 'length', 'ranking']].to_csv("../top_30_longest_disparadores.csv", sep=';', index=False, encoding='utf-8-sig')
+
+# Veo el ranking de las cadenas más largas
+print(top_30_longest[['disparador', 'length', 'ranking']])
+
 
 """
 Percentiles: Los percentiles dividen un conjunto de datos en 100 partes iguales. El valor en el percentil 
