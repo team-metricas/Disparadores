@@ -43,7 +43,7 @@ def clean_and_remove_stopwords(text):
     words_filtered = [word for word in words if word.lower() not in stop_words_es]
     return ' '.join(words_filtered)
 
-# Creo una nueva columna "Keywords_limpias" eliminando las stop words y limpiando caracteres no deseados
+# Creo una nueva columna "Keywords_limpias" eliminando las stop words y saco simbolos molestos
 df_tsv['Keywords_limpias'] = df_tsv['Keywords'].apply(clean_and_remove_stopwords)
 
 # Calculo la cantidad de palabras totales en "Keywords_limpias"
@@ -53,7 +53,7 @@ df_tsv['word_count'] = df_tsv['Keywords_limpias'].apply(lambda x: len(word_token
 df_tsv_sorted = df_tsv.sort_values(by='word_count', ascending=False)
 
 # Exporto el DataFrame ordenado a un archivo CSV
-df_tsv_sorted.to_csv("../df_tsv_sorted.csv", sep=';', index=False, encoding='utf-8-sig')
+df_tsv_sorted[['Name', 'ID', 'Keywords_limpias', 'word_count']].to_csv("../df_tsv_sorted.csv", sep=';', index=False, encoding='utf-8-sig')
 
 # Suma de todos los valores en la columna 'word_count'
 total_word_count = df_tsv_sorted['word_count'].sum()
@@ -70,7 +70,7 @@ plt.show()
 
 # Creo una nueva columna con la lista de palabras, limpiando delimitadores y reemplazando \r\n por un espacio en blanco
 df_tsv['keywords_list'] = df_tsv['Keywords'].apply(
-    lambda x: [word.strip() for word in re.sub(r'[().]', '', str(x)).replace('|', ',').replace('\\r\\n', ', ').replace('.', ', ').replace('\\u201d', '  ').replace('\\u201c', '  ').replace('\\u2018', '  ').replace('\\u2019', '  ').split(',') if word.strip()]
+    lambda x: [word.strip() for word in re.sub(r'[()]', '', str(x)).replace('|', ',').replace('\\r\\n', ', ').replace('.', ', ').replace('\\u201d', '  ').replace('\\u201c', '  ').replace('\\u2018', '  ').replace('\\u2019', '  ').split(',') if word.strip()]
 )
 
 # Creo un nuevo DataFrame con las columnas "Name", "ID" y 'keywords_list'
@@ -115,6 +115,7 @@ curso_df = curso_df[~curso_df['disparador'].str.contains('consurso', case=False,
 # Exporto el DataFrame filtrado a un archivo CSV
 curso_df.to_csv("../curso_disparadores_details.csv", sep=';', index=False, encoding='utf-8-sig')
 
+"""
 # Graficos del análisis de frecuencia
 plt.figure(figsize=(12, 8))
 plt.bar(frequency_analysis['disparador'][:20], frequency_analysis['frecuencia'][:20])
@@ -125,6 +126,7 @@ plt.xticks(rotation=45, ha='right')
 plt.tight_layout()
 plt.savefig("../frequency_analysis.png")
 plt.show()
+"""
 
 # 30 valores TOP de mayor frecuencia
 plt.figure(figsize=(12, 8))
@@ -172,6 +174,7 @@ descriptive_stats['median'] = median_value
 # Exporto los descriptores estadísticos a un archivo CSV
 descriptive_stats.to_csv("../descriptive_stats.csv", sep=';', encoding='utf-8-sig')
 
+"""
 # invento una nueva columna con la longitud de cada cadena en la columna "disparador"
 expanded_df['length'] = expanded_df['disparador'].apply(len)
 
@@ -186,6 +189,7 @@ top_30_longest = expanded_df_sorted.head(30)
 
 # Exporto las 30 primeras filas a un archivo CSV
 top_30_longest[['ID', 'Name', 'disparador', 'length', 'ranking']].to_csv("../top_30_longest_disparadores.csv", sep=';', index=False, encoding='utf-8-sig')
+"""
 
 
 """

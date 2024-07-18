@@ -1,11 +1,11 @@
 ﻿Name;ID;disparador
-DDHH01CUX01 Apertura;PLBWX5XYGQ2B3GP7IN8Q-tknwrra59i@b.m-1663611276762;inmigrante
-CU10CUX01 Vida cotidiana (audio 1 - Pasaje San Lorenzo y Defensa);PLBWX5XYGQ2B3GP7IN8Q-ub76fc3hdv@b.m-1686337278223;testaudiocasco
-TR03CUX17 Solicitud al Departamento de Legales de Licencias;PLBWX5XYGQ2B3GP7IN8Q-pquxlcdskf@b.m-1627927690484;alimentarios
-TR03CUX17 Solicitud al Departamento de Legales de Licencias;PLBWX5XYGQ2B3GP7IN8Q-pquxlcdskf@b.m-1627927690484;legales
-TR03CUX17 Permiso de carga excepcional (por viaje);PLBWX5XYGQ2B3GP7IN8Q-guadalupe@botmaker.io-1561384354070;excepcional
-TR03CUX17 Permiso de carga excepcional (por viaje);PLBWX5XYGQ2B3GP7IN8Q-guadalupe@botmaker.io-1561384354070;peso
-TR03CUX17 Permiso de carga excepcional (por viaje);PLBWX5XYGQ2B3GP7IN8Q-guadalupe@botmaker.io-1561384354070;super
-TR03CUX17 Permiso de carga excepcional (por viaje);PLBWX5XYGQ2B3GP7IN8Q-guadalupe@botmaker.io-1561384354070;largo
-TR03CUX17 Permiso de carga excepcional (por viaje);PLBWX5XYGQ2B3GP7IN8Q-guadalupe@botmaker.io-1561384354070;excepcionales
-LIC00CUX00  Inhibido > No / Turno > No / Trámite > No / CHV > Sí / Infracciones > Sí;PLBWX5XYGQ2B3GP7IN8Q-71taky8k4z@b.m-1666379056351;infraccionesrenovtest
+¿En qué consiste el trámite de Modificación de Datos?;PLBWX5XYGQ2B3GP7IN8Q-fernando@botmaker.com-1535864488222-7413;restaurar
+¿En qué consiste el trámite de Modificación de Datos?;PLBWX5XYGQ2B3GP7IN8Q-fernando@botmaker.com-1535864488222-7413;variacion
+¿En qué consiste el trámite de Modificación de Datos?;PLBWX5XYGQ2B3GP7IN8Q-fernando@botmaker.com-1535864488222-7413;variar
+¿En qué consiste el trámite de Modificación de Datos?;PLBWX5XYGQ2B3GP7IN8Q-fernando@botmaker.com-1535864488222-7413;sustitucion
+CU01CUX02 Museo Contemporáneo;PLBWX5XYGQ2B3GP7IN8Q-guadalupe@botmaker.io-1571677747943;galería
+CU09CUX01 CCR;PLBWX5XYGQ2B3GP7IN8Q-guadalupe@botmaker.io-1571679214570;hop
+CU09CUX01 CCR;PLBWX5XYGQ2B3GP7IN8Q-guadalupe@botmaker.io-1571679214570;hip
+CU09CUX01 Apertura;PLBWX5XYGQ2B3GP7IN8Q-guadalupe@botmaker.io-1571678712649;25
+TR03CUX30 Registro de organizaciones de Acción Comunitaria;PLBWX5XYGQ2B3GP7IN8Q-guadalupe@botmaker.io-1571759405579;organizaciones
+BOT02CUX08 Apertura;PLBWX5XYGQ2B3GP7IN8Q-d92bs170w9@b.m-1708954387996;turisteandotest123
