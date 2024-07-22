@@ -115,6 +115,16 @@ curso_df = curso_df[~curso_df['disparador'].str.contains('consurso', case=False,
 # Exporto el DataFrame filtrado a un archivo CSV
 curso_df.to_csv("../curso_disparadores_details.csv", sep=';', index=False, encoding='utf-8-sig')
 
+
+# Filtro el expanded_df para obtener las filas donde "disparador" contiene la palabra "paseo" pero no "consurso"
+paseo_df = expanded_df[expanded_df['disparador'].str.contains('paseo', case=False, na=False)]
+#paseo_df = paseo_df[~paseo_df['disparador'].str.contains('consurso', case=False, na=False)]
+
+# Exporto el DataFrame filtrado a un archivo CSV
+paseo_df.to_csv("../paseo_disparadores_details.csv", sep=';', index=False, encoding='utf-8-sig')
+
+
+
 """
 # Graficos del análisis de frecuencia
 plt.figure(figsize=(12, 8))
